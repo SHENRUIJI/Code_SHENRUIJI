@@ -1,0 +1,11 @@
+AsthmaPlant 0
+Cocklebur 1
+Crabgrass 2
+CommonSowthistle 3
+GoatWillow 4
+Hagonoy 5
+PurpleNutsedge 6
+SensitivePlant 7
+RiceFlowering 8
+RiceUnripe 9
+RiceRipe 10
