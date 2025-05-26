@@ -1,0 +1,16 @@
+# crop.yaml
+train: /root/yolo/train
+val: /root/yolo/val
+nc: 11 
+names:
+  - AsthmaPlant         # 哮喘草 (Asthma Plant)
+  - Cocklebur           # 苍耳 (Cocklebur)
+  - Crabgrass           # 马唐草 (Crabgrass)
+  - CommonSowthistle    # 豚草 (Common Sowthistle)
+  - GoatWillow          # 羊蹄草 (Goat Willow)
+  - Hagonoy             # 白花鬼针草 (Hagonoy)
+  - PurpleNutsedge      # 莎草 (Purple Nutsedge)
+  - SensitivePlant      # 含羞草 (Sensitive Plant)
+  - RiceFlowering       # 水稻开花 (Rice Flowering Stage)
+  - RiceUnripe          # 未成熟水稻 (Unripe Rice)
+  - RiceRipe            # 成熟水稻 (Ripe Rice)
