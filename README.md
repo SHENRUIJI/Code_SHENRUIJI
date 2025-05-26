@@ -7,10 +7,13 @@
 Ниже показан YOLOv8n:
 ![YOLOv8n](./run_results/yolov8.png)
 
+
 Ниже показан YOLOv8n+SE:
+
 ![YOLOv8n+SE](./run_results/yolov8se.png)
 
 Ниже показан YOLOv11n:
+
 ![YOLOv11n](./run_results/yolov11.png)
 
 **cleanup.py**  
