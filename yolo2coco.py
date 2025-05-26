@@ -2,7 +2,6 @@ import os
 import json
 from PIL import Image
 
-# 路径配置
 dst_dir = r"D:\Projects\Pycharm_projects\nil\database\coco_crop"
 src_dir = r"D:\Projects\Pycharm_projects\nil\database\data_yolov8"
 img_root = os.path.join(src_dir, "images")
@@ -23,7 +22,7 @@ def yolo2coco(x, y, w, h, img_w, img_h):
         h * img_h
     ]
 
-# 主体
+# main
 for split in ['train', 'val']:
     coco = {"images": [], "annotations": [], "categories": categories}
     ann_id = 1
