@@ -51,10 +51,10 @@
 **yolo/ultralytics/cfg/models/v8/yolov8.ymal**  
 Файл конфигурации модели YOLOv8.
 
-**yolo/ultralytics/cfg/models/v8/yolov8.ymal**  
-Файл конфигурации модели YOLOv8.
+**yolo/ultralytics/cfg/models/v8/SEAtt_yolov8.yaml**  
+Файл конфигурации модели YOLOv8+SE.
 
-**yolo/ultralytics/cfg/models/v8/yolov8.ymal**  
-Файл конфигурации модели YOLOv8.
+**yolo/ultralytics/cfg/models/11/yolov11.ymal**  
+Файл конфигурации модели YOLOv11.
 
 
