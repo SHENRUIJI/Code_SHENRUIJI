@@ -35,7 +35,7 @@ def parse_args():
         os.environ['LOCAL_RANK'] = str(args.local_rank)
     return args
 
-# === 配置部分 ===
+#配置部分
 model_cfg = dict(
     backbone=dict(
         type='DenseNet',
@@ -119,6 +119,7 @@ lr_config = dict(
     warmup_ratio=1e-6
 )
 
+#-主函数-
 def main():
     args = parse_args()
     print_info(model_cfg)
