@@ -39,3 +39,11 @@
 **compress_imgs.py**  
 Сжатие качества изображений.
 
+**yolo/train8.py**  
+Код для обучения YOLOv8.
+
+**yolo/train11.py**  
+Код для обучения YOLOv11.
+
+**yolo/train8se.py**  
+Код для обучения YOLOv8+SE.
