@@ -1,6 +1,5 @@
 import os
 import sys
-# from typing import Sequence
 sys.path.insert(0,os.getcwd())
 import copy
 import argparse
@@ -31,7 +30,7 @@ model_cfg = dict(
     backbone=dict(
         type='EfficientFormer',
         arch='l3',
-        drop_path_rate=0.1,  # 推荐用 0.1（更深模型更稳定）
+        drop_path_rate=0.1, 
         init_cfg=[
             dict(
                 type='TruncNormal',
@@ -43,7 +42,7 @@ model_cfg = dict(
         ]),
     neck=dict(type='GlobalAveragePooling', dim=1),
     head=dict(
-        type='EfficientFormerClsHead', in_channels=512, num_classes=11)  # ←← 注意这里改了
+        type='EfficientFormerClsHead', in_channels=512, num_classes=11)  
 )
 
 
