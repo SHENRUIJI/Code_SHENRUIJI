@@ -100,7 +100,7 @@
     title={OpenMMLab's Pre-training Toolbox and Benchmark},
     author={MMPreTrain Contributors},
     howpublished = {\url{https://github.com/open-mmlab/mmpretrain}},
-    year={2023}
+    year={2024}
 }
 
 @misc{ultralytics,
@@ -108,7 +108,7 @@
   title        = {Ultralytics},
   year         = 2024,
   howpublished = {\url{https://github.com/ultralytics/ultralytics}},
-  note         = {Accessed: 2024-12-01}
+  note         = {Accessed: 2024}
 }
 
 @misc{Awesome-Backbones,
@@ -116,5 +116,5 @@
   title        = {Awesome-Backbones},
   year         = 2024,
   howpublished = {\url{https://github.com/Fafa-DL/Awesome-Backbones}},
-  note         = {Accessed: 2025-02-01}
+  note         = {Accessed: 2024}
 }
