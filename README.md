@@ -17,6 +17,18 @@
 
 ![YOLOv11n](./run_results/yolov11.png)
 
+Ниже показан Resnet34:
+
+![Resnet34](./run_results/resnet.png)
+
+Ниже показан SE-Resnet34:
+
+![SE-Resnet34](./run_results/seresnet.png)
+
+Ниже показан Densenet:
+
+![Densenet](./run_results/densenet.png)
+
 **cleanup.py**  
 Скрипт для очистки данных и исправления несоответствий между изображениями и метками.
 
