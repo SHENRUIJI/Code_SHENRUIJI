@@ -29,6 +29,14 @@
 
 ![Densenet](./run_results/densenet.png)
 
+Ниже показан Deit-tiny:
+
+![Deit-tiny](./run_results/denit.png)
+
+Ниже показан EfficientFormer-L3:
+
+![EfficientFormer-L3](./run_results/efficientformer.png)
+
 **cleanup.py**  
 Скрипт для очистки данных и исправления несоответствий между изображениями и метками.
 
