@@ -102,6 +102,7 @@
     howpublished = {\url{https://github.com/open-mmlab/mmpretrain}},
     year={2023}
 }
+
 @misc{ultralytics,
   author       = {Ultralytics},
   title        = {Ultralytics},
@@ -109,6 +110,7 @@
   howpublished = {\url{https://github.com/ultralytics/ultralytics}},
   note         = {Accessed: 2024-12-01}
 }
+
 @misc{Awesome-Backbones,
   author       = {Fafa-DL},
   title        = {Awesome-Backbones},
