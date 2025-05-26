@@ -112,6 +112,16 @@
 **Densenet.py**  
 Файл конфигурации обучения модели
 
+**datas/annotations.txt**  
+Файл сопоставления классов и меток
+
+**datas/train.txt**  
+Список данных обучающего набора
+
+**datas/test.txt**  
+Список данных тестового набора
+
+
 ## Ссылка на репозиторий GitHub：
 @misc{2023mmpretrain,
     title={OpenMMLab's Pre-training Toolbox and Benchmark},
