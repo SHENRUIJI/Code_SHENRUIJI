@@ -2,7 +2,7 @@ import os
 import cv2
 from xml.dom.minidom import Document
 
-def yolo_to_voc(img_dir, lbl_dir, xml_out):
+def yolo2voc(img_dir, lbl_dir, xml_out):
     label_map = {'0': "crop", '1': "weed1", '2': "weed2"}
     txt_files = [f for f in os.listdir(lbl_dir) if f.endswith('.txt')]
 
@@ -73,4 +73,4 @@ if __name__ == "__main__":
     img_dir = "D:/Projects/Pycharm_projects/nil/database/data/images/"
     lbl_dir = "D:/Projects/Pycharm_projects/nil/database/data/labels/"
     xml_out = "D:/Projects/Pycharm_projects/nil/database/voc_crop/"
-    yolo_to_voc(img_dir, lbl_dir, xml_out)
+    yolo2voc(img_dir, lbl_dir, xml_out)
