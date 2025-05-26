@@ -57,4 +57,6 @@
 **yolo/ultralytics/cfg/models/11/yolo11.ymal**  
 Файл конфигурации модели YOLOv11.
 
+**yolo/ultralytics/cfg/datasets/crop.yaml**  
+Файл конфигурации набора данных YOLO.
 
