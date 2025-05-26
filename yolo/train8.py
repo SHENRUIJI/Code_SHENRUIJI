@@ -2,7 +2,6 @@ import sys
 import argparse
 import os
 
-# sys.path.append('/root/ultralyticsPro/') # Path 以Autodl为例
 
 from ultralytics import YOLO
 
