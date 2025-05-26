@@ -94,6 +94,9 @@
 **yolo/ultralytics/cfg/datasets/crop.yaml**  
 Файл конфигурации набора данных YOLO.
 
+**GetAnnot.py**  
+Сжатие качества изображений.
+
 
 ## Ссылка на репозиторий GitHub：
 @misc{2023mmpretrain,
