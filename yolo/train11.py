@@ -8,10 +8,8 @@ from ultralytics import YOLO
 
 def main(opt):
     yaml = opt.cfg
-    model = YOLO(yaml) # 直接加载yaml文件训练
-    # model = YOLO(weights)  # 直接加载权重文件进行训练
-    # model = YOLO(yaml).load(weights) # 加载yaml配置文件的同时，加载权重进行训练
-
+    model = YOLO(yaml)
+    
     model.info()
     
     results = model.train(
@@ -20,13 +18,13 @@ def main(opt):
     imgsz=640,
     workers=4,
     batch=16,
-    optimizer='AdamW',  # 👈 这里添加这一行
-    lr0=0.001,          # 👈 建议设置较小的初始学习率
+    optimizer='AdamW', 
+    lr0=0.001,     
     weight_decay=0.0005
 )
 
 '''
-    results = model.train(data='crop.yaml',  # 训练参数均可以重新设置
+    results = model.train(data='crop.yaml', 
                         epochs=100, 
                         imgsz=640, 
                         workers=4, 
