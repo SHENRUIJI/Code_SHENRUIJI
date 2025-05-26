@@ -47,3 +47,14 @@
 
 **yolo/train8se.py**  
 Код для обучения YOLOv8+SE.
+
+**yolo/ultralytics/cfg/models/v8/yolov8.ymal**  
+Файл конфигурации модели YOLOv8.
+
+**yolo/ultralytics/cfg/models/v8/yolov8.ymal**  
+Файл конфигурации модели YOLOv8.
+
+**yolo/ultralytics/cfg/models/v8/yolov8.ymal**  
+Файл конфигурации модели YOLOv8.
+
+
