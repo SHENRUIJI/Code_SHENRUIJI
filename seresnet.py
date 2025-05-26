@@ -35,7 +35,7 @@ def parse_args():
         os.environ['LOCAL_RANK'] = str(args.local_rank)
     return args
 
-# === 配置部分 ===
+# 配置部分
 model_cfg = dict(
     backbone=dict(type='SEResNet', depth=34, num_stages=4, out_indices=(3,), style='pytorch'),
     neck=dict(type='GlobalAveragePooling'),
@@ -88,6 +88,7 @@ data_cfg = dict(
 optimizer_cfg = dict(type='AdamW', lr=0.0005, weight_decay=0.05)
 lr_config = dict(type='CosineAnnealingLrUpdater', min_lr=1e-6, warmup='linear', warmup_iters=1000, warmup_ratio=1e-6)
 
+#-主函数-
 def main():
     args = parse_args()
     print_info(model_cfg)
