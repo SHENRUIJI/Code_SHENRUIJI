@@ -31,7 +31,7 @@
 
 Ниже показан Deit-tiny:
 
-![Deit-tiny](./run_results/denit.png)
+![Deit-tiny](./run_results/deit.png)
 
 Ниже показан EfficientFormer-L3:
 
