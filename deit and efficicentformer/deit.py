@@ -1,6 +1,5 @@
 import os
 import sys
-# from typing import Sequence
 sys.path.insert(0,os.getcwd())
 import copy
 import argparse
@@ -10,7 +9,6 @@ import numpy as np
 import random
 
 import torch
-# import torch.backends.cudnn as cudnn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torch.nn.parallel import DataParallel
@@ -27,7 +25,7 @@ import torch, gc
 import torch.backends.cudnn as cudnn
 cudnn.benchmark = True
 
-# ✅ 嵌入 deit.py 中的配置（直接替代 file2dict）
+#模型配置
 model_cfg = dict(
     backbone=dict(
         type='VisionTransformer',
@@ -105,7 +103,7 @@ data_cfg = dict(
 
 optimizer_cfg = dict(
     type='AdamW',
-    lr=5e-4,
+    lr=0.0005,
     weight_decay=0.05,
     betas=(0.9, 0.999)
 )
@@ -120,12 +118,12 @@ lr_config = dict(
     warmup_by_epoch=True
 )
 
-# ---------------------------- END CONFIG ----------------------------
+# 主函数main
 
 def before_each_epoch():
     gc.collect()
     torch.cuda.empty_cache()
-    print("🧹 显存清空完成")
+    print("显存清空完成")
 
 
 def parse_args():
@@ -147,8 +145,6 @@ def parse_args():
 
 def main():
     args = parse_args()
-
-    # 替换原来的 file2dict 读取
     print_info(model_cfg)
 
     meta = dict()
@@ -160,7 +156,6 @@ def main():
     set_random_seed(seed, deterministic=args.deterministic)
     meta['seed'] = seed
 
-    # 数据处理与划分
     total_annotations = "datas/train.txt"
     with open(total_annotations, encoding='utf-8') as f:
         total_datas = f.readlines()
@@ -205,10 +200,10 @@ def main():
     try:
         flops = FlopCountAnalysis(backbone, dummy_input)
         params = parameter_count(backbone)
-        print(f"🧠 [Backbone] 参数量: {params[''] / 1e6:.2f} M")
-        print(f"⚡ [Backbone] 总计算量: {flops.total() / 1e9:.2f} GFLOPs")
+        print(f"[Backbone] 参数量: {params[''] / 1e6:.2f} M")
+        print(f"[Backbone] 总计算量: {flops.total() / 1e9:.2f} GFLOPs")
     except Exception as e:
-        print(f"🚫 无法统计 FLOPs/参数量：{e}")
+        print(f"无法统计 FLOPs/参数量：{e}")
 
     optimizer = eval('optim.' + optimizer_cfg.pop('type'))(params=model.parameters(), **optimizer_cfg)
     lr_update_func = eval(lr_config.pop('type'))(**lr_config)
@@ -255,7 +250,7 @@ def main():
 
         epoch_duration = time.time() - epoch_start
         epoch_times.append({'epoch': epoch + 1, 'time_sec': round(epoch_duration, 2)})
-        print(f"⏱️ Epoch {epoch + 1} 耗时: {epoch_duration:.2f} 秒")
+        print(f"Epoch {epoch + 1} 耗时: {epoch_duration:.2f} 秒")
 
         train_history.after_epoch(meta)
 
@@ -266,7 +261,7 @@ def main():
         writer.writeheader()
         writer.writerows(epoch_times)
 
-    print(f"📄 每轮训练时间已保存至: {csv_path}")
+    print(f"每轮训练时间已保存至: {csv_path}")
 
 
 if __name__ == "__main__":
