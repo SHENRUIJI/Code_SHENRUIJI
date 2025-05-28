@@ -152,6 +152,11 @@
 **configs/losses/cross_entropy_loss.py**  
 Этот файл реализует модуль функции потерь с перекрестной энтропией (Cross-Entropy Loss).
 
+**logs/logs/DenseNet/2025-04-23-01-54-02**  
+Эта папка содержит результаты обучения DenseNet: метрики оценки, время обучения, графики функции потерь во время тренировки и валидации.
+
+
+
 ## Ссылка на репозиторий GitHub：
 @misc{2023mmpretrain,
     title={OpenMMLab's Pre-training Toolbox and Benchmark},
