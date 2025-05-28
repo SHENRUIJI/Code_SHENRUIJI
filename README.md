@@ -134,6 +134,17 @@
 **datas/test.txt**  
 Список данных тестового набора
 
+**configs/backbones/densenet.py**  
+Этот файл представляет собой часть backbone-архитектуры DenseNet.
+
+**configs/backbones/resnet.py**  
+Этот файл представляет собой часть backbone-архитектуры ResNet.
+
+**configs/backbones/seresnet.py**  
+Этот файл представляет собой часть backbone-архитектуры SE-Resnet.
+
+
+
 
 ## Ссылка на репозиторий GitHub：
 @misc{2023mmpretrain,
