@@ -1,6 +1,6 @@
 import os
 
-img_dir = r"D:\Projects\RICE_deaplearning\data\fuzuhe\Data Maize Growth Stage NEW\Pre_Grain"
+img_dir = r"D:\Projects\RICE_deaplearning\data\TEST\yolo\images"
 prefix = "weed"
 
 exts = {'.jpg', '.jpeg', '.png', '.bmp', '.gif'}
