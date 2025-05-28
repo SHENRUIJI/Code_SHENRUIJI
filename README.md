@@ -143,8 +143,14 @@
 **configs/backbones/seresnet.py**  
 Этот файл представляет собой часть backbone-архитектуры SE-Resnet.
 
+**configs/necks/gap.py**  
+Этот файл реализует модуль глобального усредняющего пула (Global Average Pooling).
 
+**configs/heads/linear_head.py**  
+Этот файл реализует модуль линейной головы классификации (Linear Classification Head).
 
+**configs/losses/cross_entropy_loss.py**  
+Этот файл реализует модуль функции потерь с перекрестной энтропией (Cross-Entropy Loss).
 
 ## Ссылка на репозиторий GitHub：
 @misc{2023mmpretrain,
