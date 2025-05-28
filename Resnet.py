@@ -74,7 +74,7 @@ data_cfg = dict(
         pretrained_weights='',
         freeze_flag=False,
         freeze_layers=(),
-        epoches=1,
+        epoches=100,
     ),
     test=dict(
         ckpt='',
