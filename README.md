@@ -26,7 +26,7 @@
 
 ![SE-Resnet34](./run_results/seresnet.png)
 
-Ниже показан Densenet:
+Ниже показан Densenet121:
 
 ![Densenet](./run_results/densenet.png)
 
