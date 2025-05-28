@@ -149,13 +149,31 @@
 **configs/backbones/seresnet.py**  
 Этот файл представляет собой часть backbone-архитектуры SE-Resnet.
 
+**deit and efficicentformer/configs/backbones/efficientformer.py**  
+Этот файл представляет собой часть backbone-архитектуры Efficientformer.
+
+**deit and efficicentformer/configs/backbones/vision_transformer.py**  
+Этот файл представляет собой часть backbone-архитектуры Vision Transformer.
+
 **configs/necks/gap.py**  
+Этот файл реализует модуль глобального усредняющего пула (Global Average Pooling).
+
+**deit and efficicentformer/configs/necks/gap.py**  
 Этот файл реализует модуль глобального усредняющего пула (Global Average Pooling).
 
 **configs/heads/linear_head.py**  
 Этот файл реализует модуль линейной головы классификации (Linear Classification Head).
 
+**deit and efficicentformer/configs/heads/efficientformer_head.py**  
+Этот файл реализует модуль Efficientformer Class Head.
+
+**deit and efficicentformer/configs/heads/deit_head.py**  
+Этот файл реализует модуль Deit Class Head.
+
 **configs/losses/cross_entropy_loss.py**  
+Этот файл реализует модуль функции потерь с перекрестной энтропией (Cross-Entropy Loss).
+
+**deit and efficicentformer/configs/losses/cross_entropy_loss.py**  
 Этот файл реализует модуль функции потерь с перекрестной энтропией (Cross-Entropy Loss).
 
 **logs/logs/DenseNet/2025-04-23-01-54-02**  
