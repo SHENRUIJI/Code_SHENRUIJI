@@ -9,7 +9,6 @@ import numpy as np
 import random
 
 import torch
-# import torch.backends.cudnn as cudnn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torch.nn.parallel import DataParallel
@@ -163,7 +162,7 @@ data_cfg = dict(
 # lr = 5e-4 * 16 / 64
 optimizer_cfg = dict(
     type='AdamW',
-    lr=5e-4 * 16 / 64,
+    lr=0.0005,
     weight_decay=0.05,
     eps=1e-8,
     betas=(0.9, 0.999)
