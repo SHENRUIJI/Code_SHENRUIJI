@@ -106,7 +106,7 @@ data_cfg = dict(
 
 optimizer_cfg = dict(
     type='AdamW',
-    lr=5e-4,
+    lr=0.0005,
     weight_decay=0.05,
     betas=(0.9, 0.999)
 )
