@@ -125,6 +125,12 @@
 **Densenet.py**  
 Файл конфигурации обучения модели
 
+**deit and efficicentformer/deit.py**  
+Файл конфигурации обучения модели
+
+**deit and efficicentformer/efficientformer.py**  
+Файл конфигурации обучения модели
+
 **datas/annotations.txt**  
 Файл сопоставления классов и меток
 
