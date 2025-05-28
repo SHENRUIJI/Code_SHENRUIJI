@@ -5,6 +5,8 @@ import torch
 import numpy as np
 from torchvision import transforms
 
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+
 def list_imgs(dir):
     return [f for f in os.listdir(dir) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
 
@@ -108,40 +110,57 @@ def run(img_dir, label_dir, out_dir, target=10000, seed=42):
 
     print("初始:", counts)
     aug = Aug()
+    all_methods = ['hf', 'vf', 'cp'] + [f't{i}' for i in range(5)]
+    
     for cls in sorted(counts):
         print(f"增强类别 {cls} ...")
-        while counts[cls] < target:
+        processed_images = set()
+        while counts[cls] < target and len(processed_images) < len(cls_imgs.get(cls, [])):
             names = list(cls_imgs.get(cls, []))
             if not names: break
             name = random.choice(names)
+            if name in processed_images:
+                continue
             imgs = [f for f in os.listdir(img_dir) if os.path.splitext(f)[0] == name]
             if not imgs: continue
             img_path = os.path.join(img_dir, imgs[0])
             lbl_path = os.path.join(label_dir, name + '.txt')
             if not os.path.exists(img_path) or not os.path.exists(lbl_path): continue
-            img = Image.open(img_path)
-            boxes = load_labels(label_dir, imgs[0])
-            out_data = {
-                'hf': aug.hflip(img.copy(), boxes.clone()),
-                'vf': aug.vflip(img.copy(), boxes.clone()),
-                'cp': aug.crop(img.copy(), boxes.clone(), 1024),
-            }
-            for i, (im,) in enumerate(aug.tensor_aug(img)):
-                out_data[f't{i}'] = (im, boxes.clone())
-            for tag, (im, bx) in out_data.items():
-                prefix = f"aug{cls}_{random.randint(0,9999)}_{tag}_"
-                save(im, bx, out_dir, prefix, imgs[0])
-                add_count(counts, bx)
-            if counts[cls] >= target:
-                print(f"类别 {cls} 完成，共 {counts[cls]} 条")
-                break
+            try:
+                img = Image.open(img_path)
+                boxes = load_labels(label_dir, imgs[0])
+                out_data = {}
+                for method in all_methods:
+                    if method.startswith('t'):
+                        im = aug.tensor_aug(img.copy())[int(method[1:])][0]
+                    elif method == 'hf':
+                        im, bx = aug.hflip(img.copy(), boxes.clone())
+                    elif method == 'vf':
+                        im, bx = aug.vflip(img.copy(), boxes.clone())
+                    elif method == 'cp':
+                        im, bx = aug.crop(img.copy(), boxes.clone(), 1024)
+                    
+                    prefix = f"aug{cls}_{random.randint(0,9999)}_{method}_"
+                    save(im, bx, out_dir, prefix, imgs[0])
+                    add_count(counts, bx)
+                    out_data[method] = (im, bx)
+                
+                processed_images.add(name)
+                if counts[cls] >= target:
+                    print(f"类别 {cls} 完成，共 {counts[cls]} 条")
+                    break
+            except Exception as e:
+                print(f"处理文件 {name} 时出错: {e}")
 
     print("完成:")
     for k in sorted(counts):
         print(f"类别 {k}: {counts[k]}")
 
 if __name__ == "__main__":
-    imgs = r"D:\\Projects\\RICE_deaplearning\\datasets\\处理中的数据集\\杂草\\image"
-    labels = r"D:\\Projects\\RICE_deaplearning\\datasets\\处理中的数据集\\杂草\\yolo_label"
-    out = r"D:\\Projects\\RICE_deaplearning\\data"
+    imgs = r"D:\Projects\RICE_deaplearning\data\TEST\yolo\images\train"
+    labels = r"D:\Projects\RICE_deaplearning\data\TEST\yolo\labels\train"
+    out = r"D:\Projects\RICE_deaplearning\data\TEST\数据增强"
     run(imgs, labels, out, target=10000)
+
+
+
