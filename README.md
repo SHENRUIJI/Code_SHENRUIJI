@@ -192,12 +192,6 @@
 Эта папка содержит результаты обучения Deit: метрики оценки, время обучения, графики функции потерь во время тренировки и валидации.
 
 ## Ссылка на репозиторий GitHub：
-@misc{2023mmpretrain,
-    title={OpenMMLab's Pre-training Toolbox and Benchmark},
-    author={MMPreTrain Contributors},
-    howpublished = {\url{https://github.com/open-mmlab/mmpretrain}},
-    year={2025}
-}
 
 @misc{ultralytics,
   author       = {Ultralytics},
@@ -205,6 +199,13 @@
   year         = 2024,
   howpublished = {\url{https://github.com/ultralytics/ultralytics}},
   note         = {Accessed: 2024}
+}
+
+@misc{2023mmpretrain,
+    title={OpenMMLab's Pre-training Toolbox and Benchmark},
+    author={MMPreTrain Contributors},
+    howpublished = {\url{https://github.com/open-mmlab/mmpretrain}},
+    year={2025}
 }
 
 @misc{Awesome-Backbones,
