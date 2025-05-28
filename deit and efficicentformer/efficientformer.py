@@ -30,7 +30,7 @@ model_cfg = dict(
     backbone=dict(
         type='EfficientFormer',
         arch='l3',
-        drop_path_rate=0.1, 
+        drop_path_rate=0.1,
         init_cfg=[
             dict(
                 type='TruncNormal',
@@ -42,7 +42,10 @@ model_cfg = dict(
         ]),
     neck=dict(type='GlobalAveragePooling', dim=1),
     head=dict(
-        type='EfficientFormerClsHead', in_channels=512, num_classes=11)  
+        type='EfficientFormerClsHead', in_channels=512, num_classes=11,loss=dict(
+        type='CrossEntropyLoss',
+        loss_weight=1.0
+    ))
 )
 
 
