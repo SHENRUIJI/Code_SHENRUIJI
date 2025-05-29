@@ -48,7 +48,6 @@ model_cfg = dict(
 )
 
 
-# dataloader pipeline
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 img_norm_cfg = dict(
@@ -157,9 +156,6 @@ data_cfg = dict(
     )
 )
 
-
-# batch 16
-# lr = 5e-4 * 16 / 64
 optimizer_cfg = dict(
     type='AdamW',
     lr=0.0005,
@@ -168,8 +164,6 @@ optimizer_cfg = dict(
     betas=(0.9, 0.999)
 )
 
-
-# learning 
 lr_config = dict(
     type='CosineAnnealingLrUpdater',
     by_epoch=False,
@@ -189,17 +183,14 @@ cfg = dict(
     val_pipeline=val_pipeline
 )
 
-# ---------------------------- END CONFIG ----------------------------
-
 def before_each_epoch():
     gc.collect()
     torch.cuda.empty_cache()
-    print("🧹 显存清空完成")
+    print("显存清空完成")
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a model')
-    # 删除 --config 参数
     parser.add_argument('--resume-from', help='the checkpoint file to resume from')
     parser.add_argument('--seed', type=int, default=None, help='random seed')
     parser.add_argument('--device', help='device used for training. (Deprecated)')
@@ -217,7 +208,6 @@ def parse_args():
 def main():
     args = parse_args()
 
-    # 替换原来的 file2dict 读取
     print_info(model_cfg)
 
     meta = dict()
@@ -274,10 +264,10 @@ def main():
     try:
         flops = FlopCountAnalysis(backbone, dummy_input)
         params = parameter_count(backbone)
-        print(f"🧠 [Backbone] 参数量: {params[''] / 1e6:.2f} M")
-        print(f"⚡ [Backbone] 总计算量: {flops.total() / 1e9:.2f} GFLOPs")
+        print(f"[Backbone] 参数量: {params[''] / 1e6:.2f} M")
+        print(f"[Backbone] 总计算量: {flops.total() / 1e9:.2f} GFLOPs")
     except Exception as e:
-        print(f"🚫 无法统计 FLOPs/参数量：{e}")
+        print(f"无法统计 FLOPs/参数量：{e}")
 
     optimizer = eval('optim.' + optimizer_cfg.pop('type'))(params=model.parameters(), **optimizer_cfg)
     lr_update_func = eval(lr_config.pop('type'))(**lr_config)
@@ -324,7 +314,7 @@ def main():
 
         epoch_duration = time.time() - epoch_start
         epoch_times.append({'epoch': epoch + 1, 'time_sec': round(epoch_duration, 2)})
-        print(f"⏱️ Epoch {epoch + 1} 耗时: {epoch_duration:.2f} 秒")
+        print(f"Epoch {epoch + 1} 耗时: {epoch_duration:.2f} 秒")
 
         train_history.after_epoch(meta)
 
@@ -335,7 +325,7 @@ def main():
         writer.writeheader()
         writer.writerows(epoch_times)
 
-    print(f"📄 每轮训练时间已保存至: {csv_path}")
+    print(f"每轮训练时间已保存至: {csv_path}")
 
 
 if __name__ == "__main__":
