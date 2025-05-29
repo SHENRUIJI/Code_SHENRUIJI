@@ -128,7 +128,6 @@ def before_each_epoch():
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a model')
-    # 删除 --config 参数
     parser.add_argument('--resume-from', help='the checkpoint file to resume from')
     parser.add_argument('--seed', type=int, default=None, help='random seed')
     parser.add_argument('--device', help='device used for training. (Deprecated)')
